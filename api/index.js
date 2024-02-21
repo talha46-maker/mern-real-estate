@@ -1,8 +1,10 @@
 import  express  from 'express';
 /*import App from "../client/src/App";*/
-import mongoose from 'mongoose';
+import mongoose, { get } from 'mongoose';
 
 import dotenv from'dotenv';
+
+import UserRouter from './routes/user.route.js';
 
 dotenv.config();
 
@@ -18,3 +20,4 @@ app.listen(3000,() =>{
     console.log('server is running on prot 3000 ');
 }
 );
+app.use('/api/user',UserRouter);
