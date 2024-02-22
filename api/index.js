@@ -1,10 +1,11 @@
 import  express  from 'express';
 /*import App from "../client/src/App";*/
-import mongoose, { get } from 'mongoose';
-
+import mongoose from 'mongoose';
 import dotenv from'dotenv';
 
 import UserRouter from './routes/user.route.js';
+import authRouter from './routes/auth.route.js';
+
 
 dotenv.config();
 
@@ -16,8 +17,12 @@ mongoose.connect(process.env.MONGO).then(()=>{
 
 const app = express();
 
-app.listen(3000,() =>{
+app.use(express.json());
+
+var server=app.listen(3000,() =>{
     console.log('server is running on prot 3000 ');
 }
 );
+server.timeout=1000000
 app.use('/api/user',UserRouter);
+app.use('/api/auth',authRouterRouter);
