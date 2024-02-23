@@ -25,4 +25,4 @@ var server=app.listen(3000,() =>{
 );
 server.timeout=1000000
 app.use('/api/user',UserRouter);
-app.use('/api/auth',authRouterRouter);
+app.use('/api/auth',authRouter);
