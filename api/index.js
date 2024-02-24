@@ -26,3 +26,15 @@ var server=app.listen(3000,() =>{
 server.timeout=1000000
 app.use('/api/user',UserRouter);
 app.use('/api/auth',authRouter);
+
+
+app.use((err,req,res,next)=>{
+    const statuscode =err.statuscode ||500;
+    const message = err.message || 'Internal Server Error';
+    return res.status(statuscode).json({
+     success:false,
+     statuscode,
+     message,
+});
+});
+
