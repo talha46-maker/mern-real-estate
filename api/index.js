@@ -19,8 +19,8 @@ const app = express();
 
 app.use(express.json());
 
-var server=app.listen(3000,() =>{
-    console.log('server is running on prot 3000 ');
+var server=app.listen(5173,() =>{
+    console.log('server is running on prot 5173cd  ');
 }
 );
 server.timeout=1000000
